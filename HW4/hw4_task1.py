@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 # --- Your Task --- #
 # Import necessary libraries
 from sklearn.linear_model import LinearRegression
-from sklearn.metrics import mean_squared_error
+from sklearn.metrics import mean_squared_error #depreacted but still works for me
 # --- end of task --- #
 
 # Load a data set for regression
@@ -25,6 +25,7 @@ label_test = data[n - num_test:, -1]
 # You should aim to observe overfitting (and normal performance) from these 8 values 
 # Note: maximum percentage is 0.75
 # num_train_per = [0.05, 0.1, 0.15, 0.2, 0.3, 0.5, 0.65, 0.75]
+# added more to make the graph more clear
 num_train_per = [0.15, 0.25, 0.35, 0.45, 0.5, 0.54, 0.65, 0.75, 0.85, 0.9, 0.95]
 # --- end of task --- #
 
@@ -57,7 +58,8 @@ for per in num_train_per:
     er_test = mean_squared_error(label_test, pred_test)
     er_test_per.append(er_test)
     # --- end of task --- #
-        
+
+plt.figure(1)   
 plt.plot(num_train_per, er_train_per, label='Training Error')
 plt.plot(num_train_per, er_test_per, label='Testing Error')
 plt.xlabel('Percentage of Training Data')
